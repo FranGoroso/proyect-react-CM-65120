@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css'
 import ItemListContainer from './components/ItemListContainer.jsx'
 import CartWidget from './components/CartWidget.jsx'
