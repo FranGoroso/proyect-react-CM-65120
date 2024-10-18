@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css'
-import ItemListContainer from './components/ItemListContainer.jsx'
-import CartWidget from './components/CartWidget.jsx'
-import NavBar from './components/Navbar.jsx'
+import ItemListContainer from './components/itemListContainer/ItemListContainer.jsx'
+import CartWidget from './components/cartWidget/CartWidget.jsx'
+import NavBar from './components/navbar/Navbar.jsx'
 function App() {
 
   return (
@@ -11,7 +11,7 @@ function App() {
       <CartWidget /> 
     </NavBar>
 
-    <ItemListContainer text = "Hola Mundo! Este es el primer texto que tengo en mi app de react"/>
+    <ItemListContainer/>
     </div>
   );
 };
