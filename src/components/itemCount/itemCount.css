@@ -1,0 +1,50 @@
+.item-count-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .item-count-quantity {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ced4da;
+    background-color: #f8f9fa;
+    margin: 0 5px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+  
+  .btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-outline-secondary {
+    border: 1px solid #ced4da;
+    background-color: #f8f9fa;
+    color: #6c757d;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #e2e6ea;
+  }
+  
+  .btn-primary {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 150px;
+  }
