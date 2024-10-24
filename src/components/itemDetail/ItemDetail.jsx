@@ -1,4 +1,5 @@
-import { Card, Button } from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
+import ItemCount from '../itemCount/ItemCount'
 
 function ItemDetail( {detail} ) {
     return(
@@ -13,7 +14,7 @@ function ItemDetail( {detail} ) {
                         <strong>Descripción:</strong> {detail.description}<br />
                         <strong>Stock:</strong> {detail.stock}
                     </Card.Text>
-                    <Button variant="primary">Agregar al carrito</Button>
+                    <ItemCount/>
                 </Card.Body>
             </Card>
         </div>
