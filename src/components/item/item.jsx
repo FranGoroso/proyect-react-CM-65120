@@ -1,17 +1,17 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../item/item.css';
 import ItemCount from '../itemCount/ItemCount';
-
+import { Link } from 'react-router-dom'
+ 
 function Item({ item }) {
   return (
     <Card className="custom-card">
       <Card.Img variant="top" src={item.img} className="custom-card-img" />
-      <Card.Body>
+      <Card.Body as= {Link} to= {`/item/${item.id}`}>
         <Card.Title>{item.name}</Card.Title>
         <Card.Text>{item.description}</Card.Text>
-        <ItemCount stock={item.stock} initial={1} />
       </Card.Body>
+      <ItemCount stock={item.stock} initial={1} />
     </Card>
   );
 }
