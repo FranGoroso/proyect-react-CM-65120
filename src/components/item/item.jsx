@@ -7,7 +7,7 @@ function Item({ item }) {
   return (
     <Card className="custom-card">
       <Card.Img variant="top" src={item.img} className="custom-card-img" />
-      <Card.Body as= {Link} to= {`/item/${item.id}`}>
+      <Card.Body as= {Link} to= {`/item/${item.id}`} style={{ textDecoration: 'none' }}>
         <Card.Title>{item.name}</Card.Title>
         <Card.Text>{item.description}</Card.Text>
       </Card.Body>
