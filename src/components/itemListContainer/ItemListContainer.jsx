@@ -1,28 +1,36 @@
 import { products } from '../../data/products';
 import { useState, useEffect } from 'react';
-import ItemList from '../itemList/itemList'
+import ItemList from '../itemList/itemList';
+import { useParams } from 'react-router-dom';
+
 function ItemListContainer() {
     const [items, setItems] = useState([]); 
+    const { id } = useParams();  
 
-    const getProducts = () => {
-        return new Promise((resolve) => {
+    // Simulacion de fetch con filtrado por categoria
+    const getProducts = (categoryId) => {
+        return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(products); 
-            }, 2000);
+                if (categoryId) {
+                    
+                    const filteredProducts = products.filter(product => product.category.toLowerCase() === categoryId.toLowerCase());
+                    resolve(filteredProducts);
+                } else {
+                    resolve(products);  
+                }
+            }, 2000); 
         });
     };
 
     useEffect(() => {
-        getProducts()
+        getProducts(id)  
             .then(res => setItems(res))
             .catch(error => console.error('Error al cargar los productos:', error));
-    }, []);
-    
-    
+    }, [id]);  
 
     return (
         <div>
-            <ItemList items = {items}/>
+            <ItemList items={items} />
         </div>
     );
 }

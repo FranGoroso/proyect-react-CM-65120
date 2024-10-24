@@ -22,7 +22,7 @@ export const products = [
         id: "3",
         name: "Smartwatch Fitness",
         price: 149.99,
-        category: "Tecnología Fitness",
+        category: "Tecnologia",
         img: "https://tidbits.com/uploads/2022/02/Activity-vs-Athlytic.jpeg",
         stock: 20,
         description: "Smartwatch con monitoreo de frecuencia cardíaca, GPS y seguimiento de actividades deportivas.",
@@ -49,7 +49,7 @@ export const products = [
         id: "6",
         name: "Banda de Resistencia",
         price: 14.99,
-        category: "Tecnología Fitness",
+        category: "Tecnologia",
         img: "https://m.media-amazon.com/images/I/71iMq-YtxZL._AC_UF894,1000_QL80_.jpg",
         stock: 200,
         description: "Banda de resistencia para ejercicios de fuerza y rehabilitación.",
@@ -76,7 +76,7 @@ export const products = [
         id: "9",
         name: "Reloj de Pulso Deportivo",
         price: 99.99,
-        category: "Tecnología Fitness",
+        category: "Tecnologia",
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5NjDGVaXu_299uIyiWeqcCc6-wSq9DtRgtg&s",
         stock: 30,
         description: "Reloj de pulso con monitorización de ritmo cardíaco y conectividad Bluetooth.",
@@ -93,18 +93,18 @@ export const products = [
 ];
 
 //ASYNC MOCK
-export const getPorducts = () => {
+export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products)
-        })
-    }, 2000)
-}
+            resolve(products); 
+        }, 2000);
+    });
+};
 
-export const getPoductsById = (productId) => {
+export const getProductsById = (productId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products.find(prod => prod.id === productId))
-        }, 2000)
-    })
-}
+            resolve(products.find(prod => prod.id === productId)); 
+        }, 2000);
+    });
+};
