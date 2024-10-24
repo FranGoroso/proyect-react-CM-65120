@@ -7,6 +7,8 @@ import {
     Route,
   } from "react-router-dom";
 
+import CustomError from './components/customError/CustomError'
+
 function App() {
     return (
         <div>
@@ -15,6 +17,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<ItemListContainer />} />
                     <Route path="/category/:id" element={<ItemListContainer />} />
+                    <Route path="*" element={<CustomError/>}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
