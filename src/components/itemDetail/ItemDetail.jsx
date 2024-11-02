@@ -1,5 +1,6 @@
 import { Card} from 'react-bootstrap';
 import ItemCount from '../itemCount/ItemCount'
+import '../itemDetail/itemDetail.css'
 
 function ItemDetail( {detail} ) {
     return(
