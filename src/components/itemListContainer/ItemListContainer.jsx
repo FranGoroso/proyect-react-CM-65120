@@ -30,7 +30,7 @@ function ItemListContainer() {
             .then(res => setItems(res))
             .catch(error => console.error('Error al cargar los productos:', error));
 
-            console.log('funciona') //CONTROL
+            console.log(value) //CONTROL
     }, [id]);  
 
     return (

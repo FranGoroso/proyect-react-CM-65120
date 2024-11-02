@@ -7,7 +7,7 @@ function CartProvider({ children }) {
     const addToCart = item => setCart([...cart, item]);
 
     return (
-        <cartContext.Provider value={{ cart, addToCart }}>
+        <cartContext.Provider value={{ cart, addToCart }}> {/* NO OLVIDARME QUE EL CART Y ADDTOCART ES UN SOLO OBJETO QUE CONTIENE A ESTOS 2*/}
             {children}
         </cartContext.Provider>
     );
