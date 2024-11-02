@@ -14,10 +14,11 @@ function ItemDetail( {detail} ) {
                         <strong>Descripción:</strong> {detail.description}<br />
                         <strong>Stock:</strong> {detail.stock}
                     </Card.Text>
-                    <ItemCount/>
+                    <ItemCount detail={detail} stock={detail.stock} initial={1} />
                 </Card.Body>
             </Card>
         </div>
+        
     )
 }
 
