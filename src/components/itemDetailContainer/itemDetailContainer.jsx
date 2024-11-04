@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { products } from '../../data/products'; 
 import ItemDetail from '../itemDetail/ItemDetail.jsx'
+import Loader from '../loader/Loader.jsx'
 
 function ItemDetailContainer() {
     const [detail, setDetail] = useState(null); 
@@ -30,7 +31,7 @@ function ItemDetailContainer() {
     }, [id]);
 
     if (!detail) {
-        return <div>Cargando...</div>; // mensaje de carga
+        return <Loader/>; // mensaje de carga
     }
 
     return (
