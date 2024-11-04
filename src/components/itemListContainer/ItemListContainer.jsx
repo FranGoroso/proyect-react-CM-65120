@@ -11,9 +11,9 @@ function ItemListContainer() {
 
 
     const onAddToCart = (item, quantity) => {
-        addToCart({ ...item, quantity });
+        addToCart({ ...item, qty: quantity });
     };
-
+    
     // Simulación de fetch con filtrado por categoría
     const getProducts = (categoryId) => {
         return new Promise((resolve) => {

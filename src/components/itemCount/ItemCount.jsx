@@ -12,6 +12,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
 
+  const handleAddToCart = () => onAdd(quantity);
+
   return (
     <div className="item-count-container">
       <div className="btn-group" role="group" aria-label="Basic example">
@@ -22,7 +24,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       <button
         className="btn btn-primary mt-2"
         disabled={!stock}
-        onClick={() => onAdd(quantity)}
+        onClick={handleAddToCart}  
       >
         Add to cart
       </button>
