@@ -2,40 +2,43 @@ import { products } from '../../data/products';
 import { useState, useEffect, useContext } from 'react';
 import ItemList from '../itemList/ItemList';
 import { useParams } from 'react-router-dom';
-import { cartContext } from '../../context/cartContext'
+import { cartContext } from '../../context/cartContext';
 
 function ItemListContainer() {
-    const [items, setItems] = useState([]); 
-    const { id } = useParams();  
+    const [items, setItems] = useState([]);
+    const { id } = useParams();
+    const { addToCart } = useContext(cartContext);
 
-    const value= useContext(cartContext)
 
-    // Simulacion de fetch con filtrado por categoria
+    const onAddToCart = (item, quantity) => {
+        addToCart({ ...item, quantity });
+    };
+
+    // Simulación de fetch con filtrado por categoría
     const getProducts = (categoryId) => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             setTimeout(() => {
                 if (categoryId) {
-                    
-                    const filteredProducts = products.filter(product => product.category.toLowerCase() === categoryId.toLowerCase());
+                    const filteredProducts = products.filter(
+                        product => product.category.toLowerCase() === categoryId.toLowerCase()
+                    );
                     resolve(filteredProducts);
                 } else {
-                    resolve(products);  
+                    resolve(products);
                 }
-            }, 2000); 
+            }, 2000);
         });
     };
 
     useEffect(() => {
-        getProducts(id)  
+        getProducts(id)
             .then(res => setItems(res))
             .catch(error => console.error('Error al cargar los productos:', error));
-
-            console.log(value) //CONTROL
-    }, [id]);  
+    }, [id]);
 
     return (
         <div>
-            <ItemList items={items} />
+            <ItemList items={items} onAddToCart={onAddToCart} />
         </div>
     );
 }

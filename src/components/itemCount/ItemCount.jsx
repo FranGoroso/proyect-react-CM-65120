@@ -1,30 +1,16 @@
-import { useState, useContext } from 'react';
-import '../itemCount/itemCount.css'; 
-import { cartContext } from '../../context/cartContext';
+import { useState } from 'react';
+import '../itemCount/itemCount.css';
 
-
-const ItemCount = ({ stock, initial, detail}) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
-  const { addToCart } = useContext(cartContext)
 
   const increment = () => {
-    if (quantity < stock) {
-      setQuantity(quantity + 1);
-    }
+    if (quantity < stock) setQuantity(quantity + 1);
   };
 
   const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+    if (quantity > 1) setQuantity(quantity - 1);
   };
-  
-  const handleAddToCart = () => {
-    if (detail) {
-      addToCart(detail);
-    }
-  };
-  
 
   return (
     <div className="item-count-container">
@@ -33,7 +19,11 @@ const ItemCount = ({ stock, initial, detail}) => {
         <span className="item-count-quantity">{quantity}</span>
         <button className="btn btn-outline-secondary" onClick={increment}>+</button>
       </div>
-      <button className="btn btn-primary mt-2" disabled={!stock} onClick={handleAddToCart}>
+      <button
+        className="btn btn-primary mt-2"
+        disabled={!stock}
+        onClick={() => onAdd(quantity)}
+      >
         Add to cart
       </button>
     </div>
