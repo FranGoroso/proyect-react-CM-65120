@@ -1,42 +1,37 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { products } from '../../data/products'; 
-import ItemDetail from '../itemDetail/ItemDetail.jsx'
-import Loader from '../loader/Loader.jsx'
+import ItemDetail from '../itemDetail/ItemDetail.jsx';
+import Loader from '../loader/Loader.jsx';
+import { getItemDetail } from '../../firebase/db';
 
 function ItemDetailContainer() {
     const [detail, setDetail] = useState(null); 
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     useEffect(() => {
-        const getProductDetails = () => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const productDetail = products.find(product => product.id === id);
-                    resolve(productDetail);
-                }, 2000);
-            });
-        };
-
-        getProductDetails()
+        setLoading(true);
+        getItemDetail(id)
             .then(res => {
-                if (res) {
-                    setDetail(res);
-                } else {
-                    console.error('No se encontró el producto con el ID:', id);
-                    setDetail(null);
-                }
+                setDetail(res);
+                setLoading(false);
             })
-            .catch(error => console.error('Error al cargar el detalle del producto:', error));
+            .catch(error => {
+                console.error(`Error al cargar el detalle del producto con ID ${id}:`, error);
+                setDetail(null);
+                setLoading(false);
+            });
     }, [id]);
 
-    if (!detail) {
-        return <Loader/>; // mensaje de carga
+    if (loading) {
+        return <Loader />; 
     }
 
-    return (
-        <ItemDetail detail={detail} /> 
-    );
+    if (!detail) {
+        return <p>No se encontró el producto.</p>; 
+    }
+
+    return <ItemDetail detail={detail} />;
 }
 
 export default ItemDetailContainer;

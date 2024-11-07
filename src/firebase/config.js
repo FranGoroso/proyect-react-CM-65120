@@ -1,14 +1,13 @@
 import { initializeApp } from "firebase/app";
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBZVlkGkuFvLA7GtouHIRd91LsWk1_Z5dg",
-  authDomain: "coder-house-proyecto-react.firebaseapp.com",
-  projectId: "coder-house-proyecto-react",
-  storageBucket: "coder-house-proyecto-react.firebasestorage.app",
-  messagingSenderId: "114446193048",
-  appId: "1:114446193048:web:543815289ca86660281bed"
+  apiKey: "AIzaSyBv7utM7V3wUvjF7OjxZIvY4z6puK7oayo",
+  authDomain: "coder-house-fran-cm-65120.firebaseapp.com",
+  projectId: "coder-house-fran-cm-65120",
+  storageBucket: "coder-house-fran-cm-65120.firebasestorage.app",
+  messagingSenderId: "512614603263",
+  appId: "1:512614603263:web:f4e770193e7a91d0f16fca"
 };
 
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);

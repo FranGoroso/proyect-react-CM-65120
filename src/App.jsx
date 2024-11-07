@@ -5,7 +5,7 @@ import {
     BrowserRouter,
     Routes,
     Route,
-  } from "react-router-dom";
+} from "react-router-dom";
 
 import CustomError from './components/customError/CustomError'
 import ItemDetailContainer from './components/itemDetailContainer/itemDetailContainer'
@@ -14,16 +14,16 @@ function App() {
     return (
         <div>
             <BrowserRouter>
-            <Navbar/>
+                <Navbar />
                 <Routes>
                     <Route path="/" element={<ItemListContainer />} />
                     <Route path="/category/:id" element={<ItemListContainer />} />
                     <Route path="/item/:id" element={<ItemDetailContainer />} />
-                    <Route path="*" element={<CustomError/>}></Route>
+                    <Route path="*" element={<CustomError />} />
                 </Routes>
             </BrowserRouter>
         </div>
     )
 }
 
-export default App
+export default App;
