@@ -1,5 +1,4 @@
 import Navbar from './components/navbar/Navbar';
-import './index.css';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
 import {
     BrowserRouter,
