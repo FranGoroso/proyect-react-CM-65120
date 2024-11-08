@@ -1,4 +1,4 @@
-import Navbar from './components/navbar/Navbar'
+import Navbar from './components/navbar/Navbar';
 import './index.css';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
 import {
@@ -6,10 +6,9 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-
-import CustomError from './components/customError/CustomError'
-import ItemDetailContainer from './components/itemDetailContainer/itemDetailContainer'
-import Cart from './components/cart/Cart'
+import CustomError from './components/customError/CustomError';
+import ItemDetailContainer from './components/itemDetailContainer/itemDetailContainer';
+import CartContainer from './components/cartContainer/CartContainer'; 
 
 function App() {
     return (
@@ -20,12 +19,12 @@ function App() {
                     <Route path="/" element={<ItemListContainer />} />
                     <Route path="/category/:id" element={<ItemListContainer />} />
                     <Route path="/item/:id" element={<ItemDetailContainer />} />
-                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/cart" element={<CartContainer />} /> 
                     <Route path="*" element={<CustomError />} />
                 </Routes>
             </BrowserRouter>
         </div>
-    )
+    );
 }
 
 export default App;
