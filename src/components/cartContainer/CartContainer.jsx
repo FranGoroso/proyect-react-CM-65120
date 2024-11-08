@@ -2,6 +2,7 @@ import { useCart } from '../../context/cartContext';
 import { createOrder } from '../../firebase/db';
 import { serverTimestamp } from 'firebase/firestore';
 import Cart from '../cart/Cart';
+import Swal from 'sweetalert2';  
 
 function CartContainer() {
     const { cart, getTotal, clearCart } = useCart();
@@ -10,7 +11,11 @@ function CartContainer() {
         e.preventDefault();
 
         if (cart.length === 0) {
-            alert("El carrito está vacío.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Carrito vacío',
+                text: 'No puedes realizar la compra sin productos en el carrito.',
+            });
             return;
         }
 
@@ -25,12 +30,32 @@ function CartContainer() {
         };
 
         try {
-            await createOrder(order);
-            alert("Compra realizada con éxito");
+            const orderId = await createOrder(order);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Compra exitosa',
+                html: `
+                    <p style="font-size: 18px; margin-bottom: 10px;">Tu compra se ha realizado con éxito.</p>
+                    <p style="font-size: 20px; font-weight: bold; color: #4CAF50;">ID de tu orden: <span style="color: #000; font-style: italic;">${orderId}</span></p>
+                    <p style="font-size: 16px; margin-top: 10px; color: #555;">¡NO TE OLVIDES DE ANOTARLO!</p>
+                `,
+                confirmButtonText: 'Cerrar',
+                didClose: () => {
+                    
+                    window.location.href = '/';  
+                }
+            });
+                 
+
             clearCart(); 
         } catch (error) {
             console.error("Error al crear la orden:", error);
-            alert("Hubo un problema con la compra.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Hubo un problema',
+                text: 'No se pudo completar la compra. Intenta nuevamente.',
+            });
         }
     };
 
