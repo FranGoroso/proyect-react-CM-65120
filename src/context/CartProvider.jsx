@@ -24,8 +24,17 @@ function CartProvider({ children }) {
         return total;
     };
 
+    const getTotal = () => {
+        return cart.reduce((acc, item) => {
+            const price = item.price || 0;
+            const qty = item.qty || 0;
+            return acc + price * qty;
+        }, 0);
+    };
+    
+
     return (
-        <cartContext.Provider value={{ cart, addToCart, getQuantity }}>
+        <cartContext.Provider value={{ cart, addToCart, getQuantity, getTotal }}>
             {children}
         </cartContext.Provider>
     );

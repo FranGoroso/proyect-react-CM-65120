@@ -9,6 +9,7 @@ import {
 
 import CustomError from './components/customError/CustomError'
 import ItemDetailContainer from './components/itemDetailContainer/itemDetailContainer'
+import Cart from './components/cart/Cart'
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/" element={<ItemListContainer />} />
                     <Route path="/category/:id" element={<ItemListContainer />} />
                     <Route path="/item/:id" element={<ItemDetailContainer />} />
+                    <Route path="/cart" element={<Cart />} />
                     <Route path="*" element={<CustomError />} />
                 </Routes>
             </BrowserRouter>

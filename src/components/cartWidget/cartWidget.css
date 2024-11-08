@@ -7,6 +7,7 @@
     padding: 0.3rem 0.6rem;
     border-radius: 6px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .cart-icon {
