@@ -12,7 +12,7 @@ function NavBar() {
     <>
       <Navbar className="navbar" bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand as= {Link} to= '/' href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand as= {Link} to= '/' href="#home"><img className="custom-brand" src="https://st4.depositphotos.com/3265223/24936/v/450/depositphotos_249366040-stock-illustration-fitness-gym-logo-with-strong.jpg" alt="" /></Navbar.Brand>
           <Nav className="mx-auto">
             <Nav.Link as= {Link} to= '/category/suplementos' href="#suplementos">Suplementos</Nav.Link>
             <Nav.Link as= {Link} to= '/category/indumentaria' href="#Indumentaria">Indumentaria</Nav.Link>
